@@ -44,9 +44,9 @@ Este proyecto contiene un ejemplo de aplicación de Ionic, utilizando React, don
 Para ejecutar este proyecto, se debe clonar el repositorio y ejecutar los siguientes comandos en la terminal:
 
 ```bash
-git clone https://github.com/sgarciaddev/ay-ingweb-ejemplo-form-ionic-react.git
+git clone -b react https://github.com/sgarciaddev/ay-ingweb-ejemplo-form-ionic.git
 
-cd ay-ingweb-ejemplo-form-ionic-react
+cd ay-ingweb-ejemplo-form-ionic
 
 npm install
 
@@ -410,7 +410,7 @@ interface RegionesJSON {
 }
 ```
 
-[ejemplo-ng-link]: #
+[ejemplo-ng-link]: https://github.com/sgarciaddev/ay-ingweb-ejemplo-form-ionic/tree/angular
 [ruta-archivo1]: ./src/misc/validators.ts
 [ruta-archivo2]: ./src/pages/Formulario.tsx
 [ruta-archivo3]: ./public/regiones-comunas.json

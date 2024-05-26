@@ -1,7 +1,7 @@
 {
-  "name": "ej-form-react",
+  "name": "ej-form-ng",
   "integrations": {
     "capacitor": {}
   },
-  "type": "react-vite"
+  "type": "angular"
 }

@@ -1,0 +1,134 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Formulario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Formulario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-input
+        type="text"
+        formControlName="nombre"
+        labelPlacement="stacked"
+        [errorText]="formError('nombre')"
+      >
+        <div slot="label">Nombre <ion-text color="danger">(requerido)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        type="text"
+        formControlName="apellido"
+        labelPlacement="stacked"
+        [errorText]="formError('apellido')"
+      >
+        <div slot="label">Apellido <ion-text color="danger">(requerido)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        type="text"
+        formControlName="rut"
+        labelPlacement="stacked"
+        [errorText]="formError('rut')"
+      >
+        <div slot="label">RUT <ion-text color="danger">(requerido)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        type="email"
+        formControlName="email"
+        labelPlacement="stacked"
+        [errorText]="formError('email')"
+      >
+        <div slot="label">Email <ion-text color="danger">(requerido)</ion-text></div>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-input
+        type="password"
+        formControlName="password"
+        labelPlacement="stacked"
+        [errorText]="formError('password')"
+      >
+        <div slot="label">Contraseña <ion-text color="danger">(requerido)</ion-text></div>
+        <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+    
+    <ion-item lines="none">
+      <ion-input
+        type="password"
+        formControlName="passwordConfirm"
+        labelPlacement="stacked"
+        [errorText]="formError('passwordConfirm')"
+      >
+        <div slot="label">Confirma tu contraseña <ion-text color="danger">(requerido)</ion-text></div>
+        <ion-input-password-toggle color="medium" slot="end"></ion-input-password-toggle>
+      </ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-select
+        formControlName="region"
+        interface="action-sheet"
+        labelPlacement="stacked"
+        (ionChange)="onRegionChange()"
+      >
+        <div slot="label">Región <ion-text color="danger">(requerido)</ion-text></div>
+
+        <ion-select-option
+          *ngFor="let region of regiones"
+          [value]="region.valor"
+        >
+          {{region.nombre}}
+        </ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-select
+        formControlName="comuna"
+        interface="action-sheet"
+        labelPlacement="stacked"
+      >
+      <div slot="label">Comuna <ion-text color="danger">(requerido)</ion-text></div>
+        <ion-select-option
+          *ngFor="let comuna of comunas"
+          [value]="comuna"
+        >
+          {{comuna}}
+        </ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="ion-margin-vertical" lines="none">
+      <ion-toggle formControlName="tyc" labelPlacement="start" color="success">
+        Acepto los términos y condiciones <ion-text color="danger">(requerido)</ion-text>
+      </ion-toggle>
+    </ion-item>
+
+    <ion-button
+      expand="full"
+      class="ion-padding"
+      type="submit"
+      [color]="btnColor"
+      [disabled]="!formulario.valid"
+      >{{btnText}}</ion-button
+    >
+  </form>
+</ion-content>
